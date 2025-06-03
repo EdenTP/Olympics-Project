@@ -252,3 +252,6 @@ SELECT * FROM results;
 
 **Purpose**: Quick check to confirm the data has been inserted into the fact table as expected.
 
+# Star Schema ⭐
+I then connected to my database through DBeaver and created a star scheme
+![Schema Diagram](star_schema.png)
