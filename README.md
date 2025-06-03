@@ -80,6 +80,7 @@ FROM olympics.staging;
 CREATE TABLE athletes AS
 SELECT DISTINCT 
   id AS athleteid,
+  name,
   sex,
   NULLIF(height, '') AS height,
   NULLIF(weight, '') AS weight
