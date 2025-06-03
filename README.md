@@ -195,7 +195,56 @@ FROM results;
 
 ---
 
-## 10. View `results` Table
+## 10. Assigning Primary and Foreign Keys
+
+```sql
+alter table 
+  athletes 
+add 
+  primary key(athleteid);
+alter table 
+  events 
+add 
+  primary key(eventid);
+alter table 
+  games 
+add 
+  primary key(gameid);
+alter table 
+  teams 
+add 
+  primary key(teamid);
+alter table 
+  results 
+add 
+  primary key(resultid);
+alter table 
+  results 
+add 
+  foreign key(athleteid) references athletes(athleteid);
+alter table 
+  results 
+add 
+  foreign key(eventid) references events(eventid);
+alter table 
+  results 
+add 
+  foreign key(teamid) references teams(teamid);
+alter table 
+  results 
+add 
+  foreign key(gameid) references games(gameid);
+select 
+  * 
+from 
+  results;
+```
+
+**Purpose**: Setting each tables primary key and the `fact_results` table's foreign keys.
+
+---
+
+## 11. View `results` Table
 
 ```sql
 SELECT * FROM results;
@@ -203,3 +252,6 @@ SELECT * FROM results;
 
 **Purpose**: Quick check to confirm the data has been inserted into the fact table as expected.
 
+# Star Schema ⭐
+I then connected to my database through DBeaver and created a star scheme
+![Schema Diagram](star_schema.png)
