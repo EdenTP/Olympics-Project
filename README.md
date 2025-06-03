@@ -6,7 +6,7 @@ This project focuses on transforming a large, flat Olympic results dataset into 
 
 | Column Name   | Description                                                                 |
 |---------------|-----------------------------------------------------------------------------|
-| ID            | Unique identifier for each athlete-event record.                            |
+| ID            | Unique identifier for each athlete record.                            |
 | Name          | Full name of the athlete.                                                    |
 | Sex           | Gender of the athlete (`M` for male, `F` for female).                        |
 | Age           | Age of the athlete at the time of the event (may contain nulls).            |
