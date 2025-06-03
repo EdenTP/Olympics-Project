@@ -26,20 +26,6 @@ MAX(LENGTH(games)),
 MAX(LENGTH(medal))
 FROM olympics.staging;
 
-create table results (
-resultid int,
-atheteid int,
-medal varchar(6),
-age int,
-eventid int,
-gameid int,
-teamid int);
-
-create table athletes (
-athleteid int,
-name varchar(82),
-sex char(1),
-height int);
 
 
 create table athletes as select distinct id as athleteid
