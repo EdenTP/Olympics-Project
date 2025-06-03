@@ -254,4 +254,4 @@ SELECT * FROM results;
 
 # Star Schema ⭐
 I then connected to my database through DBeaver and created a star scheme
-![Schema Diagram](star_schema.png)
+![Schema Diagram](/Olympics_Star_Schema.png)
