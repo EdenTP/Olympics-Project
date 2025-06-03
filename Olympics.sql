@@ -105,7 +105,6 @@ select row_number() over(order by event) as eventid
 from events;
 
 
-
 create table results
 with results as(
 select 
