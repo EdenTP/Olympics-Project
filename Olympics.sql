@@ -1,23 +1,12 @@
-with teams as (
-  SELECT 
-    DISTINCT team, 
-    noc, 
-    noc_region, 
-    NOC_notes 
-  FROM 
-    staging
-) 
-SELECT 
-  ROW_NUMBER() OVER(
-    ORDER BY 
-      team
-  ) as team_id, 
-  team, 
-  noc, 
-  noc_region, 
-  NOC_notes 
-FROM 
-  teams;
+select 
+  id, 
+  count(distinct name) as counts 
+from 
+  staging 
+group by 
+  id 
+having 
+  counts > 1;
 SELECT 
   MAX(
     LENGTH(name)
@@ -169,6 +158,49 @@ select
   age 
 from 
   results;
+    
+  alter table 
+  athletes 
+add 
+  primary key(athleteid);
+alter table 
+  events 
+add 
+  primary key(eventid);
+alter table 
+  games 
+add 
+  primary key(gameid);
+alter table 
+  teams 
+add 
+  primary key(teamid);
+alter table 
+  results 
+add 
+  primary key(resultid);
+alter table 
+  results 
+add 
+  foreign key(athleteid) references athletes(athleteid);
+alter table 
+  results 
+add 
+  foreign key(eventid) references events(eventid);
+alter table 
+  results 
+add 
+  foreign key(teamid) references teams(teamid);
+alter table 
+  results 
+add 
+  foreign key(gameid) references games(gameid);
+select 
+  * 
+from 
+  results
+
+
 select 
   * 
 from 
