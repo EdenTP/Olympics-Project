@@ -33,19 +33,21 @@ Below is a breakdown of the key SQL queries used to transform and normalize the 
 
 ---
 
-## 1. Extract Unique Teams
+## 1. Checking id is unique to each athlete
 
 ```sql
-WITH teams AS (
-  SELECT DISTINCT team, noc, noc_region, NOC_notes FROM staging
-)
-SELECT 
-  ROW_NUMBER() OVER(ORDER BY team) AS team_id,
-  team, noc, noc_region, NOC_notes
-FROM teams;
+select 
+  id, 
+  count(distinct name) as counts 
+from 
+  staging 
+group by 
+  id 
+having 
+  counts > 1;
 ```
 
-**Purpose**: Extracts all unique teams and generates a surrogate `team_id` using `ROW_NUMBER()` for use in the `dim_teams` table.
+**Purpose**: Counts the number of athlete names that can be attributed to each `id`.
 
 ---
 
