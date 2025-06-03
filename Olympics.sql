@@ -44,6 +44,7 @@ height int);
 
 
 create table athletes as select distinct id as athleteid
+, Name
 , sex
 , nullif(height,'') as height
 , nullif(weight,'') as weight
@@ -109,7 +110,6 @@ create table results
 with results as(
 select 
 a.athleteid
-,Name
 ,e.eventid
 ,t.teamid
 ,gameid
@@ -125,7 +125,6 @@ left join events as e on e.event=s.event and e.sport=s.sport)
 select
 row_number() over(order by e.eventid, a.athleteid) as resultid
 ,athleteid
-,name
 ,eventid
 ,teamid
 ,gameid
